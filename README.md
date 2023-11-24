@@ -15,6 +15,6 @@ then you'll open a terminal into folder:
 
 ## Start The project
 Insert:
-php bin/console doctrine:database:create
-php bin/console doctrine:schema:update --force
-php bin/console doctrine:fixtures:load
+<p>php bin/console doctrine:database:create</p>
+<p>php bin/console doctrine:schema:update --force</p>
+<p>php bin/console doctrine:fixtures:load</p>
