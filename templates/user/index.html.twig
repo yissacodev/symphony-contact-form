@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact Form{% endblock %}
+
+{% block body %}
+<style>
+    .aside{ 
+        color: white;
+        background: rgb(72,21,126);
+        background: linear-gradient(8deg, rgba(72,21,126,1) 0%, rgba(50,9,121,1) 50%, rgba(96,18,121,1) 100%);
+    }
+
+    .footer{
+        color: white;
+        font-weight: bold;
+        background: #555;
+    }
+</style>
+
+<div class="container-fluid">
+    <main class="row">
+        <aside class="col-4 d-flex flex-column justify-content-center align-items-center p-5 aside">
+            <h1>Contact us!</h1>
+            <p>Send a message to one of our offices.</p>
+        </aside>
+        <section class="col-8 p-5">
+            {{ form(form) }}
+            {% if app.request.get('msg') == "500" %}
+                <script>
+                    alert("Error!. Only one Email per day is allowed!");
+                    location.href = 'http://localhost:8000/form';
+                </script>
+            {% endif %}
+        </section>
+    </main>
+    
+    <footer class="row footer">
+        <section class="col-12 d-flex justify-content-center align-items-center p-1">
+            <p class="m-0">®Copyright Yessid Samir Acosta, All Rights Reserved</p>
+        </section>
+    </footer>
+
+    
+    {% if app.request.get('msg') == "200" %}
+        <script>
+            alert("Email has been sended!");
+            location.href = 'http://localhost:8000/form';
+        </script>
+    {% endif %}
+
+</div>
+{% endblock %}
